@@ -2,16 +2,52 @@
     <string name="app_name">Tortuga</string>
     <string name="title_activity_login">Sign in</string>
 
+    <!-- Strings related to splash -->
+    <string name="splash_name">Tortuga</string>
+    <string name="splash_way">Chamado para o mundo verde.</string>
+
+    <!-- Strings related to shared -->
+    <string name="logout">Sair</string>
+    <string name="cpf">CPF</string>
+    <string name="password">Senha</string>
+
     <!-- Strings related to login -->
+    <string name="login_in">Entrar</string>
+    <string name="login_register">Cadastrar</string>
+    <string name="phone">Celular</string>
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_password">Senha</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="register">Cadastrar</string>
+    <string name="action_sign_in_short">Entrar</string>
     <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_password">Senha inválida</string>
+    <string name="error_incorrect_password">Senha incorreta</string>
+    <string name="error_field_required">Campo obrigatório</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!-- Strings related to main -->
+    <string name="main_name">Nome</string>
+    <string name="plastic_material">Plástico</string>
+    <string name="metal_material">Metal</string>
+    <string name="glass_material">Vidro</string>
+    <string name="paper_material">Papel</string>
+    <string name="rubble_material">Entulho</string>
+    <string name="battery_material">Baterias/Pilhas</string>
+
+    <!-- Strings related to register -->
+    <string name="register_phone">Celular</string>
+    <string name="register_email">Email</string>
+    <string name="register_cep">CEP</string>
+    <string name="register_number">Número</string>
+    <string name="register_ok">Cadastrar</string>
+
+    <!-- Strings related to register -->
+    <string name="main_colect">Coletar</string>
+
+
+
+
 </resources>

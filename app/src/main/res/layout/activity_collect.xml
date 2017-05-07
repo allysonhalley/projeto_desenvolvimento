@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.ahsr.tortuga.MainActivity">
+
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:text="@string/logout"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/main_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_logout"
+        android:textSize="36dp"
+        android:textAlignment="center"
+        android:text="@string/main_name" />
+
+    <CheckedTextView
+        android:id="@+id/checked_materials"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_name"
+        android:layout_centerHorizontal="true"
+        android:text="CheckedTextView">
+
+
+
+    </CheckedTextView>
+
+    <Button
+        android:id="@+id/button_colect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:text="@string/main_colect"
+        android:layout_below="@id/checked_materials"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
