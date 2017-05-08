@@ -21,23 +21,27 @@ public class CitizenLocalStore {
     public void storeCitizenData(Citizen citizen){
         SharedPreferences.Editor spEditor = citizenLocalDataBase.edit();
         spEditor.putString("name", citizen.name);
-        spEditor.putString("cpf", citizen.cpf);
-        spEditor.putString("password", citizen.password);
-        spEditor.putString("phone", citizen.phone);
+        spEditor.putInt("cpf", citizen.cpf);
+        spEditor.putInt("password", citizen.password);
+        spEditor.putInt("phone", citizen.phone);
         spEditor.putString("email", citizen.email);
+        spEditor.putInt("cep", citizen.cep);
+        spEditor.putInt("number", citizen.number);
         spEditor.putString("strAddress", citizen.strAddress);
         spEditor.commit();
     }
 
     public Citizen getLoggedInCitizen(){
         String name = citizenLocalDataBase.getString("name", "");
-        String cpf = citizenLocalDataBase.getString("cpf", "");
-        String password = citizenLocalDataBase.getString("password", "");
-        String phone = citizenLocalDataBase.getString("phone", "");
+        int cpf = citizenLocalDataBase.getInt("cpf", -1);
+        int password = citizenLocalDataBase.getInt("password", -1);
+        int phone = citizenLocalDataBase.getInt("phone", -1);
         String email= citizenLocalDataBase.getString("email", "");
+        int cep = citizenLocalDataBase.getInt("cep", -1);
+        int number = citizenLocalDataBase.getInt("number", -1);
         String strAddress = citizenLocalDataBase.getString("strAddress", "");
 
-        Citizen storeCitizen = new Citizen(name, cpf, password, phone, email, strAddress);
+        Citizen storeCitizen = new Citizen(name, cpf, password, phone, email, cep, number, strAddress);
 
         return storeCitizen;
     }

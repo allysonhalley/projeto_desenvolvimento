@@ -2,49 +2,72 @@ package br.com.ahsr.tortuga;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import br.com.ahsr.tortuga.model.Citizen;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    Button bRegister;
-    EditText etName, etCpf, etPassword, etPhone, etEmail, etCep, etAdressNumber;
+public class RegisterActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        etName = (EditText) findViewById(R.id.register_name);
-        etCpf = (EditText) findViewById(R.id.register_cpf);
-        etPassword = (EditText) findViewById(R.id.register_password);
-        etPhone = (EditText) findViewById(R.id.register_phone);
-        etEmail = (EditText) findViewById(R.id.register_email);
-        etCep = (EditText) findViewById(R.id.register_cep);
-        etAdressNumber = (EditText) findViewById(R.id.register_number);
-        bRegister = (Button) findViewById(R.id.button_register);
-        bRegister.setOnClickListener(this);
-    }
+        final EditText etName = (EditText) findViewById(R.id.register_name);
+        final EditText etCpf = (EditText) findViewById(R.id.register_cpf);
+        final EditText etPassword = (EditText) findViewById(R.id.register_password);
+        final EditText etPhone = (EditText) findViewById(R.id.register_phone);
+        final EditText etEmail = (EditText) findViewById(R.id.register_email);
+        final EditText etCep = (EditText) findViewById(R.id.register_cep);
+        final EditText etNumber = (EditText) findViewById(R.id.register_number);
 
-    @Override
-    public void onClick(View v){
-        switch (v.getId()){
-            case R.id.button_register:
-                String name = etName.getText().toString();
-                String cpf = etName.getText().toString();
-                String password = etPassword.getText().toString();
-                String phone = etName.getText().toString();
-                String email = etName.getText().toString();
-                String strAddress = etCep.getText().toString()+","+etAdressNumber.getText().toString();
+        final Button bRegister = (Button) findViewById(R.id.button_register);
 
-                Citizen registeredData = new Citizen(name, cpf, password, phone, email, strAddress);
+        bRegister.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                final String name = etName.getText().toString();
+                final int cpf = Integer.parseInt(etName.getText().toString());
+                final int password = Integer.parseInt(etPassword.getText().toString());
+                final int phone = Integer.parseInt(etName.getText().toString());
+                final String email = etName.getText().toString();
+                final int cep = Integer.parseInt(etCep.getText().toString());
+                final int number = Integer.parseInt(etNumber.getText().toString());
 
-                startActivity(new Intent(this, MainActivity.class));
-                break;
-        }
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response){
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success){
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                RegisterActivity.this.startActivity(intent);
+                            }else{
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                builder.setMessage("Cadastro Falhou.")
+                                        .setNegativeButton("Retry", null).create().show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                RegisterRequest registerRequest = new RegisterRequest(name, cpf, password, email, phone, cep, number, responseListener );
+                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                queue.add(registerRequest);
+            }
+        });
     }
 }

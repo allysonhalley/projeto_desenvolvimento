@@ -10,8 +10,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:layout_gravity="center_horizontal"/>
+        android:hint="@string/main_name"
+        android:selectAllOnFocus="true"
+        android:layout_gravity="center_horizontal" />
 
     <EditText
         android:id="@+id/register_cpf"
@@ -20,7 +21,8 @@
         android:layout_below="@+id/register_name"
         android:ems="10"
         android:inputType="number"
-        android:text="@string/cpf"/>
+        android:hint="@string/cpf"
+        android:selectAllOnFocus="true"/>
 
     <EditText
         android:id="@+id/register_password"
@@ -29,7 +31,8 @@
         android:layout_below="@+id/register_cpf"
         android:ems="10"
         android:inputType="number"
-        android:text="@string/prompt_password"/>
+        android:hint="@string/prompt_password"
+        android:selectAllOnFocus="true"/>
 
     <EditText
         android:id="@+id/register_phone"
@@ -38,7 +41,8 @@
         android:layout_below="@+id/register_password"
         android:ems="10"
         android:inputType="phone"
-        android:text="@string/register_phone"/>
+        android:hint="@string/register_phone"
+        android:selectAllOnFocus="true"/>
 
     <EditText
         android:id="@+id/register_email"
@@ -47,7 +51,8 @@
         android:layout_below="@+id/register_phone"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="@string/register_email"/>
+        android:hint="@string/register_email"
+        android:selectAllOnFocus="true"/>
 
     <EditText
         android:id="@+id/register_cep"
@@ -56,7 +61,8 @@
         android:layout_below="@+id/register_email"
         android:ems="10"
         android:inputType="number"
-        android:text="@string/register_cep"/>
+        android:hint="@string/register_cep"
+        android:selectAllOnFocus="true"/>
 
     <EditText
         android:id="@+id/register_number"
@@ -65,7 +71,8 @@
         android:layout_below="@+id/register_cep"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/register_number"/>
+        android:hint="@string/register_number"
+        android:selectAllOnFocus="true"/>
 
     <Button
         android:id="@+id/button_register"
@@ -73,8 +80,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_number"
-        android:text="@string/register_ok"
-        android:textStyle="bold" />
+        android:hint="@string/register_ok"
+        android:textStyle="bold"/>
 
 
 
