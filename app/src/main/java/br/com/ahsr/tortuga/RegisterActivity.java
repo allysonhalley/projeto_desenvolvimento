@@ -36,10 +36,10 @@ public class RegisterActivity extends AppCompatActivity{
             @Override
             public void onClick(View v){
                 final String name = etName.getText().toString();
-                final int cpf = Integer.parseInt(etName.getText().toString());
+                final int cpf = Integer.parseInt(etCpf.getText().toString());
                 final int password = Integer.parseInt(etPassword.getText().toString());
-                final int phone = Integer.parseInt(etName.getText().toString());
-                final String email = etName.getText().toString();
+                final int phone = Integer.parseInt(etPhone.getText().toString());
+                final String email = etEmail.getText().toString();
                 final int cep = Integer.parseInt(etCep.getText().toString());
                 final int number = Integer.parseInt(etNumber.getText().toString());
 
